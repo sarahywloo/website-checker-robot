@@ -1,7 +1,12 @@
 import requests
+import json
 from email_utils import send_email_alert
 
-url = "https://dentalopolis.com"
+# Load config(s)
+with open('config.json') as x:
+    config = json.load(x)
+
+url = config['url']
 
 response = requests.get(url)
 
