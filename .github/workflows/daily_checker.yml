@@ -1,0 +1,32 @@
+# Github actions workflow file 
+
+name: Daily Website Checker
+
+on:
+  schedule:
+    - cron: '0 12 * * *'  # Every day at 12:00 UTC (7 AM EST)
+  workflow_dispatch:       # Allow manual run from GitHub UI
+
+jobs:
+  check-website:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run website checker robot
+        env:
+          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
+        run: python check.py
