@@ -5,7 +5,7 @@ name: Daily Website Checker
 on:
   schedule:
     - cron: '0 12 * * *'  # Every day at 12:00 UTC (7 AM EST)
-  workflow_dispatch:       # Allow manual run from GitHub UI
+  # workflow_dispatch:       # Allow manual run from GitHub UI
 
 jobs:
   check-website:
