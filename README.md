@@ -1,4 +1,4 @@
-# 🦷 Website Checker Robot
+# 🦷 Website Checker Robot 
 Built with my 7-year-old son, this is a lightweight python-based website monitoring tool that checks our dental office website and sends an email alert if it goes down. Built to solve a real problem (WordPress auto-updates breaking the site) while also being a fun way to explore how real-world engineers build practical tools, together as a family.
 
 ---
